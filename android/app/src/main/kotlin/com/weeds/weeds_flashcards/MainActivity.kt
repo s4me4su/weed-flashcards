@@ -1,4 +1,4 @@
-package com.example.weeds_flashcards
+package com.weeds.weeds_flashcards
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -7,9 +7,19 @@ Android and any phone browser**.
 
 | Platform | How friends get it | Cost |
 |---|---|---|
-| Windows 11 | `.\build_windows.ps1` -> zip up `dist\Weed-ID-Trainer-Windows-1.0.0.zip` | free |
 | iPhone / any phone | <https://s4me4su.github.io/weed-flashcards/> (`.\publish_web.ps1`) | free hosting |
-| Android | `flutter build apk` (no signing key set up yet - see *Android*) | free (no Play Store) |
+| Android | `.\build_apk.ps1` -> attach the APK to a [Release](../../releases) | free (no Play Store) |
+| Windows 11 | `.\build_windows.ps1` -> attach `dist\Weed-ID-Trainer-Windows-1.0.0.zip` to a [Release](../../releases) | free |
+
+Everything downloadable is on the
+[Releases page](https://github.com/s4me4su/weed-flashcards/releases); the
+README on the default branch (`site_readme.md`, copied into the build) is the
+one that tells friends how to get it.
+
+**Which branch is which:** the default branch is `gh-pages` and holds the
+*built* web app - that is what GitHub Pages serves and what the repo front page
+shows. The Flutter source is on **`main`**
+(<https://github.com/s4me4su/weed-flashcards/tree/main>).
 
 The PowerShell scripts need `powershell -NoProfile -ExecutionPolicy Bypass -File .\build_web.ps1`
 unless you allow scripts once with `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`.
@@ -145,17 +155,37 @@ backs) before zipping, so a build that would open with nothing but "Missing
 asset" placeholders never gets sent out. Everything in that `Release` folder
 belongs together; zip it and it runs with no install.
 
-## Android
+## Android (APK)
 
-Not packaged yet: no signing key exists, and an APK you send to friends has to
-be signed with a key you keep (a differently signed APK cannot be updated in
-place - it would force them to uninstall and lose their saved deck). Until then
-the web build is the phone route.
+```powershell
+.\build_apk.ps1            # one universal APK - works on every phone
+.\build_apk.ps1 -SplitAbi  # smaller per-CPU APKs (arm64, armeabi-v7a, x86_64)
+.\build_apk.ps1 -Both      # both, and -Open to pop the dist folder
+```
 
-To build one, point Flutter at an Android SDK + JDK (`flutter doctor -v` should
-show a green Android toolchain), then `flutter build apk --release`. The icons
-in `android\app\src\main\res\mipmap-*` and the label ("Weed ID Trainer") are
-already set.
+Signed with `android\weeds-keystore.jks` + `android\key.properties`. **Both are
+gitignored and are the only copy**: lose them and every installed phone has to
+be uninstalled (losing its saved deck) before a new APK will take. Copy them
+somewhere else. `build_apk.ps1` reads the keystore's certificate with `keytool`
+and refuses to put a debug-key or wrong-key APK in `dist`, so a build that
+could not be updated in place never gets sent out by accident; `-AllowDebugKey`
+overrides that for throwaway builds.
+
+The app id is `com.weeds.weeds_flashcards` (`android\app\build.gradle.kts`).
+Changing it later means a different app to Android, so it is worth leaving
+alone once APKs are in people's hands.
+
+## Publishing a download
+
+`build_apk.ps1` and `build_windows.ps1` write into `dist\`; a GitHub Release is
+where they get attached, which is what the install instructions point at:
+
+```powershell
+gh release create v1.0.0 dist\Weed-ID-Trainer-1.0.0+1.apk `
+                        dist\Weed-ID-Trainer-1.0.0+1-arm64-v8a.apk `
+                        dist\Weed-ID-Trainer-Windows-1.0.0.zip `
+    --title "Weed ID Trainer 1.0.0" --notes-file release_notes.md
+```
 
 ## Tests
 

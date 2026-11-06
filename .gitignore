@@ -50,6 +50,14 @@ app.*.map.json
 # Build scripts write the sendable archives here
 /dist/
 
+# Android release signing key. These stay off GitHub on purpose: the APKs
+# published for this app are signed with android/weeds-keystore.jks, and if the
+# key is lost, Android refuses to install a new APK over an installed one -
+# everyone's saved deck would have to be uninstalled first. Back them up.
+*.jks
+/key.properties
+/android/key.properties
+
 # tools/gen_icons.py --preview output
 preview.png
 

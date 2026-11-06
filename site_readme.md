@@ -6,16 +6,49 @@ out; flip it to check.
 
 Works on phones, tablets and computers - mouse or touch.
 
-## Play online (no install)
+## Download and install
+
+Pick whichever one suits you. Nothing needs an account, and the deck is the
+same in all three.
+
+### 1. Play online - nothing to install
 
 **https://s4me4su.github.io/weed-flashcards/**
 
 - Works in any modern browser (Chrome, Edge, Safari, Firefox).
 - Opens in a few seconds; each card's picture is cached as you reach it, so
   after a pass through the deck it opens fast, even offline.
-- Nothing to install, nothing to sign up for.
-- iPhone: **Share -> Add to Home Screen** gives it an app icon and a
-  full-screen launch.
+- On an iPhone, **Share -> Add to Home Screen** gives it an app icon and a
+  full-screen launch - that is the only way to get it on an iPhone.
+
+### 2. Android app - download the APK
+
+Get **Weed-ID-Trainer-1.0.0+1.apk** from the
+[Releases page](https://github.com/s4me4su/weed-flashcards/releases) and
+install it:
+
+1. Tap the APK download.
+2. Android warns about "unknown sources" / "not verified by Play Protect" -
+   that is normal for any app installed outside the Play Store. Choose
+   **Allow** / **Install anyway**.
+3. Open **Weed ID Trainer** from your app drawer.
+
+`Weed-ID-Trainer-1.0.0+1.apk` works on every Android phone. The
+`...-arm64-v8a.apk` next to it is about half the size and fits most phones
+bought in the last few years - if it refuses to install, use the other one.
+A newer APK installs over the old one and keeps your saved deck.
+
+### 3. Windows app - download the ZIP
+
+Get **Weed-ID-Trainer-Windows-1.0.0.zip** from the same
+[Releases page](https://github.com/s4me4su/weed-flashcards/releases):
+
+1. Download it, then right-click the zip and choose **Extract All**.
+2. Open the extracted folder and run **weeds_flashcards.exe** - worth making a
+   desktop shortcut from it (right-click -> Send to -> Desktop).
+
+No installer and no administrator rights needed. Your progress is saved in a
+`weeds_deck_v1.json` file next to the exe, so keep the folder.
 
 ## How to use
 
@@ -42,7 +75,9 @@ ones you keep getting wrong.
 ## About your progress
 
 - Your position, removals and review marks are saved **automatically**.
-- Saves live on your own device/browser - they never leave your device.
+- Saves live on your own device - in the browser for the web version, in the
+  app's folder for the Windows version, in the app's storage on Android. They
+  never leave your device.
 - Clearing browser data resets web progress.
 
 ## One known slip
@@ -53,9 +88,8 @@ that front card still names the plant. Everything else is clean.
 ## Where the cards come from
 
 Scanned from the 45-page revised weed booklet. `tools/build_weed_cards.py` in
-the source repo finds the top edge of the photo frame on every page and paints
-the name band out, so the fronts are the real pages rather than cropped or
-blurred copies. Built with Flutter - a Windows app, a web app and an
-Android-ready app from one codebase.
-
-Source: https://github.com/s4me4su/weed-flashcards (the `main` branch)
+the source finds the top edge of the photo frame on every page and paints the
+name band out, so the fronts are the real pages rather than cropped or blurred
+copies. Built with Flutter - the web app, the Android APK and the Windows app
+are all built from one codebase:
+https://github.com/s4me4su/weed-flashcards/tree/main
