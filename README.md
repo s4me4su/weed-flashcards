@@ -8,7 +8,7 @@ Android and any phone browser**.
 | Platform | How friends get it | Cost |
 |---|---|---|
 | Windows 11 | `.\build_windows.ps1` -> zip up `dist\Weed-ID-Trainer-Windows-1.0.0.zip` | free |
-| iPhone / any phone | host `build\web` and send the link | free hosting |
+| iPhone / any phone | <https://s4me4su.github.io/weed-flashcards/> (`.\publish_web.ps1`) | free hosting |
 | Android | `flutter build apk` (no signing key set up yet - see *Android*) | free (no Play Store) |
 
 The PowerShell scripts need `powershell -NoProfile -ExecutionPolicy Bypass -File .\build_web.ps1`
@@ -86,16 +86,34 @@ this repo, so the images are: the app builds without the booklet.
 
 ## Web (works on iPhones)
 
+**Live: <https://s4me4su.github.io/weed-flashcards/>** - hosted by GitHub Pages
+from the `gh-pages` branch of this repo.
+
+```powershell
+.\publish_web.ps1                # build for /weed-flashcards/ + push gh-pages
+.\publish_web.ps1 -NoBuild       # push whatever build\web holds right now
+```
+
+Or to build without publishing (a different host, or to try it locally):
+
 ```powershell
 .\build_web.ps1                    # -> build\web, for a site root
-.\build_web.ps1 -BaseHref /weeds/  # GitHub Pages project site
+.\build_web.ps1 -BaseHref /weed-flashcards/   # GitHub Pages project site
 .\build_web.ps1 -Serve             # preview at http://127.0.0.1:8899
 .\build_web.ps1 -Zip               # dist\weeds-web.zip for drag-and-drop hosts
 ```
 
-Upload the contents of `build\web` to any static host - Netlify Drop,
-Cloudflare Pages or GitHub Pages are all free. On an iPhone, **Share -> Add to
-Home Screen** gives it an app icon and full-screen launch.
+`publish_web.ps1` turns `build\web` into a single parentless `gh-pages` commit
+and force-pushes it, so the served build never accumulates history in the repo.
+The branch is enabled as the Pages source once, with:
+
+```powershell
+gh api -X POST repos/s4me4su/weed-flashcards/pages -f source[branch]=gh-pages -f source[path]=/
+```
+
+Upload the contents of `build\web` to any other static host - Netlify Drop,
+Cloudflare Pages are free. On an iPhone, **Share -> Add to Home Screen** gives
+it an app icon and full-screen launch.
 
 Images are fetched one card at a time (and the next card is pre-cached while you
 are still looking at this one), so the first card shows up quickly even though
