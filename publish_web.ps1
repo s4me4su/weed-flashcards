@@ -37,6 +37,15 @@ if (-not $NoBuild) {
 $out = Join-Path $PSScriptRoot 'build\web'
 $index = Join-Path (Join-Path $PSScriptRoot '.git') 'gh-pages-index'
 
+# The Pages branch gets its own README: it is the one GitHub shows when someone
+# opens the repo looking for the app, so it talks about playing the game rather
+# than about building it. site_readme.md in the source is where it is written.
+$site = Join-Path $PSScriptRoot 'site_readme.md'
+if (Test-Path $site) {
+    Copy-Item $site (Join-Path $out 'README.md') -Force
+    Write-Host "  site README: site_readme.md -> build\web\README.md"
+}
+
 # Turn build\web into a commit without touching the working tree or the real
 # index: git plumbing with the work tree pointed at build\web and a scratch
 # index file. `git add build\web\...` from the project root would have written
