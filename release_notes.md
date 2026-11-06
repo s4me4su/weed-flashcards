@@ -10,9 +10,9 @@ you got wrong by family.
 
 | File | For | Size |
 |---|---|---|
-| `Weed-ID-Trainer-1.0.0+1.apk` | any Android phone | ~30 MB |
-| `Weed-ID-Trainer-1.0.0+1-arm64-v8a.apk` | newer Android phones (arm64) - smaller | ~15 MB |
-| `Weed-ID-Trainer-Windows-1.0.0.zip` | Windows 10/11, touch or mouse | ~30 MB |
+| `Weed-ID-Trainer-1.0.0+1.apk` | any Android phone | 64 MB |
+| `Weed-ID-Trainer-1.0.0+1-arm64-v8a.apk` | newer Android phones (arm64) - smaller | 35 MB |
+| `Weed-ID-Trainer-Windows-1.0.0.zip` | Windows 10/11, touch or mouse | 31 MB |
 
 ## Install on Android
 
