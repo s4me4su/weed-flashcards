@@ -1,0 +1,53 @@
+WEED LIST - weeds_revised_001 (45 plants, sorted by number)
+Format: number, botanical name, common name
+(names as printed in the booklet, with spelling corrections applied)
+
+1, Cestrum parqui, Green Cestrum
+2, Cardamine hirsuta, Flickweed
+3, Eichhornia crassipes, Water Hyacinth
+4, Ipomoea purpurea, Common Morning Glory
+5, Lantana camara, Lantana
+6, Plantago lanceolata, Lamb's Tongue / Plantain
+7, Taraxacum officinale, Dandelion
+8, Solanum mauritianum, Wild Tobacco Bush
+9, Phytolacca octandra, Ink Weed
+10, Soliva sessilis, Bindii - Jo-Jo
+11, Anredera cordifolia, Madeira Vine
+12, Ligustrum lucidum, Large Leaf Privet
+13, Salvinia molesta, Salvinia
+14, Cinnamomum camphora, Camphor Laurel
+15, Ricinus communis, Castor Oil Plant
+16, Stellaria media, Common Chickweed
+17, Alternanthera philoxeroides, Alligator Weed
+18, Sida rhombifolia, Paddy's Lucern
+19, Kalanchoe delagoensis, Mother of Millions
+20, Bidens pilosa, Cobblers Pegs / Pitchforks
+21, Euphorbia peplus, Pettyspurge
+22, Rubus fruticosus, Blackberry
+23, Senecio madagascariensis, Fireweed
+24, Erythrina x sykesii, Coral Tree
+25, Rumex crispus, Curled Dock
+26, Hydrocotyle bonariensis, Pennywort
+27, Osteospermum monilifera, Bitou Bush
+28, Tradescantia fluminensis, Wandering Jew
+29, Cyperus rotundus, Nut Grass
+30, Conyza canadensis, Canadian Fleabane
+31, Hypochaeris radicata, Catsear / Flatweed
+32, Ligustrum sinense, Small Leaf Privet
+33, Nothoscordum inodorum, Onion Weed
+34, Romulea rosea, Onion Grass
+35, Solanum nigrum, Blackberry Nightshade
+36, Sonchus oleraceus, Sow Thistle
+37, Asparagus aethiopicus, Asparagus Fern
+38, Cardiospermum grandiflorum, Balloon Vine
+39, Ageratina adenophora, Crofton Weed
+40, Verbena bonariensis, Purple Top
+41, Sporobolus africanus, Parramatta Grass
+42, Digitaria sanguinalis, Summer Grass
+43, Ehrharta erecta, Panic Veldt Grass
+44, Poa annua, Winter Grass
+45, Cortaderia selloana, Pampas Grass
+
+Notes - your handwritten list used these names; the booklet page shows the accepted synonym:
+  4  Ipomoea indica        -> page shows Ipomoea purpurea
+  33 Nothoscordum borbonicum -> page shows Nothoscordum inodorum
